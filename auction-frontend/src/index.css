@@ -1,0 +1,184 @@
+/* ===== Estilos base ===== */
+:root {
+  font-family: "Segoe UI", Avenir, Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f2f5fa;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Layout general ===== */
+.app-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem 3rem;
+}
+
+/* ===== Encabezado ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e6ef;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.header h1 {
+  color: #0059b2;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.header small {
+  color: #666;
+}
+
+/* ===== Secciones ===== */
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  color: #333;
+  font-size: 1.3rem;
+  border-left: 4px solid #0059b2;
+  padding-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== Formularios ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+  font-weight: 500;
+  color: #333;
+}
+
+input,
+select {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #0059b2;
+  outline: none;
+}
+
+button {
+  background-color: #0059b2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #00418b;
+}
+
+/* ===== Lista de subastas ===== */
+.auction-list {
+  border: 1px solid #e0e6ef;
+  border-radius: 8px;
+  background: #fafbfc;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.auction-item {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e0e6ef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auction-item:hover {
+  background-color: #f0f6ff;
+}
+
+.auction-item.closed {
+  color: #888;
+  background-color: #f8f8f8;
+  cursor: not-allowed;
+}
+
+.auction-item:last-child {
+  border-bottom: none;
+}
+
+.status {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status.active {
+  color: #0b8617;
+}
+
+.status.closed {
+  color: #b20c0c;
+}
+
+/* ===== Tabla de pujas ===== */
+.bids-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.bids-table th,
+.bids-table td {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #e0e6ef;
+  text-align: left;
+}
+
+.bids-table th {
+  background-color: #f2f5fa;
+  color: #333;
+  font-weight: 600;
+}
+
+/* ===== Mensajes ===== */
+.message {
+  background-color: #e8f4ff;
+  border: 1px solid #b8e0ff;
+  color: #0059b2;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 2rem;
+}
