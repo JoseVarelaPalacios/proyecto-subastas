@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 export default function AuctionApp() {
   const API = import.meta.env.VITE_AUCTION_API || "http://127.0.0.1:5000";
 
-  // Usuarios
+  // Usuarios xdddd
   const [users, setUsers] = useState([]);
   const [nameInput, setNameInput] = useState("");
   const [selectedUserId, setSelectedUserId] = useState(null);
