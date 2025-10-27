@@ -12,9 +12,9 @@ export default function AuctionApp() {
   const [createdAuctionId, setCreatedAuctionId] = useState("");
   const [auctionForm, setAuctionForm] = useState({
     item_name: "",
-    start_price: 0,
-    min_increment: 1,
-    duration_seconds: 60,
+    start_price: "",
+    min_increment: "",
+    duration_seconds: "",
   });
 
   // Estado de subasta
@@ -54,7 +54,7 @@ export default function AuctionApp() {
 
   async function fetchAuctions() {
     try {
-      const res = await fetch(`${API}/auctions`);
+      const res = await fetch(`${API}/auctions?all=1`);
       if (!res.ok) throw new Error("Error al obtener subastas");
       const data = await res.json();
       setAuctions(data);
@@ -93,7 +93,12 @@ export default function AuctionApp() {
       const res = await fetch(`${API}/auction`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(auctionForm),
+        body: JSON.stringify({
+          ...auctionForm,
+          start_price: Number(auctionForm.start_price) || 0,
+          min_increment: Number(auctionForm.min_increment) || 1,
+          duration_seconds: Number(auctionForm.duration_seconds) || 60,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || JSON.stringify(data));
@@ -289,7 +294,7 @@ export default function AuctionApp() {
               onChange={(e) =>
                 setAuctionForm({
                   ...auctionForm,
-                  start_price: Number(e.target.value),
+                  start_price: e.target.value,
                 })
               }
             />
@@ -304,7 +309,7 @@ export default function AuctionApp() {
               onChange={(e) =>
                 setAuctionForm({
                   ...auctionForm,
-                  min_increment: Number(e.target.value),
+                  min_increment: e.target.value,
                 })
               }
             />
@@ -319,7 +324,7 @@ export default function AuctionApp() {
               onChange={(e) =>
                 setAuctionForm({
                   ...auctionForm,
-                  duration_seconds: Number(e.target.value),
+                  duration_seconds: e.target.value,
                 })
               }
             />
